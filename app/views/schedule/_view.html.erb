@@ -1,0 +1,31 @@
+<article class="calendar">
+  <header>
+    <%= schedule.month_date.strftime('%B %Y') %>
+    <nav>
+      Prev / Next
+    </nav>
+  </header>
+  <div class="calendar__grid">
+    <div class="days_of_week">
+      <% schedule.day_names.each do |day| %>
+        <div class="day"><%= day %></div>
+      <% end %>
+    </div>
+    <div class="weeks">
+      <% schedule.range.to_a.in_groups_of(7).each do |week| %>
+        <div class="week">
+          <% week.each do |date| %>
+            <%= content_tag :div, class: calendar_date_classes(date, schedule.month_date) do %>
+              <div class="day"><%= date.strftime('%d') %></div>
+              <ul class="events">
+                <% schedule.events_on(date).each do |event| %>
+                  <li><%= event.title %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</article>

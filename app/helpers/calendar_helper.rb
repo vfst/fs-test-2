@@ -5,22 +5,10 @@ module CalendarHelper
     opts = { year: Date.today.year,
              month: Date.today.month,
              first_day_of_week: 0 }.merge(opts)
-    days = %w(sunday monday tuesday wednesday thursday friday saturday).map(&:to_sym)
 
-    # calculate start/end dates according to `opts[:first_day_of_week]`
-    month = Date.new(opts[:year], opts[:month], 1)
-    start_date = month.beginning_of_week(days[opts[:first_day_of_week]])
-    end_date = month.end_of_month.end_of_week(days[opts[:first_day_of_week]])
+    schedule = Schedule.new(opts[:year], opts[:month], opts[:first_day_of_week])
 
-    # get day names and reorder them according to `opts[:first_day_of_week]`
-    day_names = I18n.t('date.abbr_day_names').dup
-    opts[:first_day_of_week].times { day_names.push(day_names.shift) }
-
-    render partial: 'calendar/view',
-           locals: { range: (start_date..end_date),
-                     month: month,
-                     day_names: day_names,
-                     calendar_opts: opts }
+    render partial: 'schedule/view', locals: { schedule: schedule }
   end
 
   def calendar_date_classes(date, month_date)
