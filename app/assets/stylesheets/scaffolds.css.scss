@@ -1,9 +1,11 @@
+@import 'globals';
+
 html, body, h1, h2, h3, h4, ul, li, ol, dl, dt, dd, p, form, fieldset, label, img, table {
   padding: 0; margin: 0; font-size: 100%; font-weight: normal; border: 0
 }
 
 body {
-  color: #212121;
+  color: $bodyColor;
   background: #f0f0f0 image-url("bg_pattern.png") repeat;
   font: normal normal 100%/1.4 Helvetica Neue, Helvetica, Arial, sans-serif
 }
@@ -11,9 +13,9 @@ body {
 article, header, footer, aside, nav {display: block}
 
 /* links */
-a {color: #0000a0}
-a:visited {color: #500070}
-a:hover {color: #a00000}
+a {color: $linkColor}
+a:visited {color: $linkVisited}
+a:hover {color: $linkHover}
 
 h1 {font-size: 2em; padding: 1.5em 0}
 h2 {font-size: 1.5em; padding: 1.75em 0}

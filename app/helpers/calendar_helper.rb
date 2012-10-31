@@ -15,7 +15,7 @@ module CalendarHelper
     links << link_to('▶', events_path(year: schedule.month_date.next_month.year,
                                       month: schedule.month_date.next_month.month))
 
-    links.join("\n").html_safe
+    links.join.html_safe
   end
 
   def calendar_date_classes(date, month_date)
