@@ -1,69 +1,38 @@
+html, body, h1, h2, h3, h4, ul, li, ol, dl, dt, dd, p, form, fieldset, label, img, table {
+  padding: 0; margin: 0; font-size: 100%; font-weight: normal; border: 0
+}
+
 body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  color: #212121;
+  background: #f0f0f0 image-url("bg_pattern.png") repeat;
+  font: normal normal 100%/1.4 Helvetica Neue, Helvetica, Arial, sans-serif
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
+article, header, footer, aside {display: block}
 
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
+/* links */
+a {color: #0000a0}
+a:visited {color: #500070}
+a:hover {color: #a00000}
 
-a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
-}
+h1 {font-size: 2em; padding: 1.5em 0}
+h2 {font-size: 1.5em; padding: 1.75em 0}
+h3 {font-size: 1.16em; padding: 1.82em 0}
+h4 {font-weight: bold}
 
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
+p {margin: 0 0 1.5em}
 
-#notice {
-  color: green;
-}
+/* lists */
+ul, ol {list-style-position: inside; padding-left: 1.5em}
+dt {font-weight: bold}
+dd {padding-left: 2em}
 
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
-  }
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
-}
+/* common useful styles */
+.hidden {display: none}
+.visible {display: block!important}
+.wrap {overflow: hidden}
+.left {float: left}
+.right {float: right}
+.a-center {text-align: center}
+.a-left {text-align: left}
+.a-right {text-align: right}
