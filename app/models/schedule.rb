@@ -3,6 +3,8 @@ class Schedule
               :start_date, :end_date, :day_names
   def initialize(year, month, first_day_of_week = 0)
     @year, @month, @first_day_of_week = year, month, first_day_of_week
+    @year ||= Date.today.year
+    @month ||= Date.today.month
 
     detect_date_range
     prepare_day_names
@@ -22,7 +24,7 @@ class Schedule
   end
 
   def month_date
-    @month_date ||= Date.new(@year, @month, 1)
+    @month_date ||= Date.new(@year.to_i, @month.to_i, 1)
   end
 
   private

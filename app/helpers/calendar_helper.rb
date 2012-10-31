@@ -1,14 +1,21 @@
 # encoding: UTF-8
 
 module CalendarHelper
-  def calendar(opts = {})
-    opts = { year: Date.today.year,
-             month: Date.today.month,
-             first_day_of_week: 0 }.merge(opts)
-
-    schedule = Schedule.new(opts[:year], opts[:month], opts[:first_day_of_week])
-
+  def calendar_for(schedule)
     render partial: 'schedule/view', locals: { schedule: schedule }
+  end
+
+  def calendar_nav(schedule)
+    links = []
+    links << link_to('◀', events_path(year: schedule.month_date.prev_month.year,
+                                      month: schedule.month_date.prev_month.month))
+
+    links << link_to(t('calendar.today'), events_path)
+
+    links << link_to('▶', events_path(year: schedule.month_date.next_month.year,
+                                      month: schedule.month_date.next_month.month))
+
+    links.join("\n").html_safe
   end
 
   def calendar_date_classes(date, month_date)

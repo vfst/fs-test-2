@@ -4,9 +4,7 @@
       <%= schedule.month_date.strftime('%B %Y') %>
     </h2>
     <nav>
-      <a href="#" class="calendar__prev">◀</a>
-      <a href="#" class="calendar__today">Today</a>
-      <a href="#" class="calendar__next">▶</a>
+      <%= calendar_nav(schedule) %>
     </nav>
   </header>
   <table class="calendar__grid" colspan="0" rowspan="0">
