@@ -5,3 +5,6 @@ en:
   hello: "Hello world"
   calendar:
     today: Today
+  date:
+    formats:
+      not_so_short: '%B %e'

@@ -25,4 +25,12 @@ module CalendarHelper
 
     classes
   end
+
+  def calendar_pretty_day(date)
+    if date.day == 1
+      l(date, format: :not_so_short)
+    else
+      date.strftime('%e')
+    end
+  end
 end

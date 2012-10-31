@@ -20,7 +20,7 @@
         <tr class="week">
           <% week.each do |date| %>
             <%= content_tag :td, class: calendar_date_classes(date, schedule.month_date) do %>
-              <div class="day"><%= date.strftime('%d') %></div>
+              <div class="day"><%= calendar_pretty_day(date) %></div>
               <ul class="events">
                 <% schedule.events_on(date).each do |event| %>
                   <li><%= event.title %></li>
