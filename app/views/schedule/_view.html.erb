@@ -1,21 +1,27 @@
 <article class="calendar">
   <header>
-    <%= schedule.month_date.strftime('%B %Y') %>
+    <h2>
+      <%= schedule.month_date.strftime('%B %Y') %>
+    </h2>
     <nav>
-      Prev / Next
+      <a href="#" class="calendar__prev">◀</a>
+      <a href="#" class="calendar__today">Today</a>
+      <a href="#" class="calendar__next">▶</a>
     </nav>
   </header>
-  <div class="calendar__grid">
-    <div class="days_of_week">
-      <% schedule.day_names.each do |day| %>
-        <div class="day"><%= day %></div>
-      <% end %>
-    </div>
-    <div class="weeks">
+  <table class="calendar__grid" colspan="0" rowspan="0">
+    <thead>
+      <tr class="days_of_week">
+        <% schedule.day_names.each do |day| %>
+          <th><%= day %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
       <% schedule.range.to_a.in_groups_of(7).each do |week| %>
-        <div class="week">
+        <tr class="week">
           <% week.each do |date| %>
-            <%= content_tag :div, class: calendar_date_classes(date, schedule.month_date) do %>
+            <%= content_tag :td, class: calendar_date_classes(date, schedule.month_date) do %>
               <div class="day"><%= date.strftime('%d') %></div>
               <ul class="events">
                 <% schedule.events_on(date).each do |event| %>
@@ -24,8 +30,8 @@
               </ul>
             <% end %>
           <% end %>
-        </div>
+        </tr>
       <% end %>
-    </div>
-  </div>
+    </tbody>
+  </table>
 </article>

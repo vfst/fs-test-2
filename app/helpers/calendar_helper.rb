@@ -13,7 +13,7 @@ module CalendarHelper
 
   def calendar_date_classes(date, month_date)
     classes = %w(date)
-    classes << 'current_month' if date.month == month_date.month
+    classes << 'other_month' unless date.month == month_date.month
     classes << 'today' if date == Date.today
 
     classes
