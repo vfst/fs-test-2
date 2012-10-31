@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: visit gym
+  date: 2012-10-31
+  recurring: false
+  schedule_type: 
+
+weekly:
+  title: weekly report
+  date: 2012-10-31
+  recurring: true
+  schedule_type: weekly
+
+daily:
+  title: brush teeth
+  date: 2012-10-31
+  recurring: true
+  schedule_type: daily
+
+monthly:
+  title: salary
+  date: 2012-11-10
+  recurring: true
+  schedule_type: monthly
+
+yearly:
+  title: birthday
+  date: 1986-07-07
+  recurring: true
+  schedule_type: yearly
