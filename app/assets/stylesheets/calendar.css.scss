@@ -1,0 +1,14 @@
+.calendar {
+  width: 100%;
+}
+
+.calendar__grid {
+  .days_of_week, .week {overflow: hidden}
+  .days_of_week .day, .week .date {
+    display: table-cell;
+    float: left;
+    overflow: hidden;
+    width: 14.285%;
+    height: 90px;
+  }
+}
