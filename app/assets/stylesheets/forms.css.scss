@@ -55,3 +55,13 @@ form {
   width: 100%;
   box-sizing: border-box;
 }
+
+.modal form {
+  font-size: 1.25em;
+  max-width: none;
+
+  .actions {
+    margin-bottom: 0;
+    font-size: 80%;
+  }
+}

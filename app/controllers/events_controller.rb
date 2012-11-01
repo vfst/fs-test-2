@@ -1,6 +1,4 @@
 # TODO: работа с повторяющимися событиями
-# TODO: добавление событий в модальном окне
-# TODO: редактирование событий в модальном окне
 # TODO: перетаскивание событий по датам
 # TODO: выпадайка с месяцем/годом при щелчке на текущий месяц
 # TODO: показывать, что событие добавлено или изменилось
@@ -10,11 +8,13 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @event = Event.new(date_str: params[:date_str])
+    render :new, layout: !request.xhr?
   end
 
   def edit
     @event = Event.find(params[:id])
+    render :edit, layout: !request.xhr?
   end
 
   def create

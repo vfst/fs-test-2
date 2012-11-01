@@ -1,3 +1,12 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+  $('.calendar__grid .date').click(->
+    $('#event_modal').removeData('modal')
+    $('#event_modal').modal(remote: "/events/new?date_str=#{@.dataset.date}")
+    false
+  )
+
+  $('.calendar__grid .date .events li').click(->
+    $('#event_modal').removeData('modal')
+    $('#event_modal').modal(remote: "/events/#{@.dataset.id}/edit")
+    false
+  )

@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
 
   def date_str=(date_string)
     self.date = Date.strptime(date_string, I18n.t('date.formats.default'))
-  rescue ArgumentError
+  rescue ArgumentError, TypeError
     self.date = Date.today
   end
 end

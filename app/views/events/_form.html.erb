@@ -11,6 +11,6 @@
   <div class="actions">
     <%= f.submit @event.new_record? ? t('event.actions.create') : t('event.actions.update') %>
 
-    <%= link_to t('event.actions.cancel'), events_path, class: :alternate %>
+    <%= event_actions_cancel_link %>
   </div>
 <% end %>
