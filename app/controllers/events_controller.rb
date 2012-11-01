@@ -2,7 +2,6 @@
 # TODO: перетаскивание событий по датам
 # TODO: удаление событий
 # TODO: выпадайка с месяцем/годом при щелчке на текущий месяц
-# TODO: показывать, что событие добавлено или изменилось
 class EventsController < ApplicationController
   def index
     @schedule = Schedule.new(params[:year], params[:month])
@@ -21,20 +20,28 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
 
-    if @event.save
-      redirect_to events_url(date_params(@event)), notice: 'Event was successfully created.'
-    else
-      render action: "new"
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to events_url(date_params(@event)), notice: 'Event was successfully created.' }
+        format.js
+      else
+        format.html { render action: "new" }
+        format.js { render nothing: true, status: :unprocessable_entity }
+      end
     end
   end
 
   def update
     @event = Event.find(params[:id])
 
-    if @event.update_attributes(params[:event])
-      redirect_to events_url(date_params(@event)), notice: 'Event was successfully updated.'
-    else
-      render action: "edit"
+    respond_to do |format|
+      if @event.update_attributes(params[:event])
+        format.html { redirect_to events_url(date_params(@event)), notice: 'Event was successfully updated.' }
+        format.js
+      else
+        format.html { render action: "edit" }
+        format.js { render nothing: true, status: :unprocessable_entity }
+      end
     end
   end
 

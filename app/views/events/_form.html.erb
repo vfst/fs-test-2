@@ -1,4 +1,4 @@
-<%= form_for(@event) do |f| %>
+<%= form_for(@event, remote: request.xhr?) do |f| %>
   <div class="wrap">
     <div class="line_field">
       <%= f.text_field :title, placeholder: t('event.new.title'), autofocus: true %>

@@ -23,9 +23,9 @@
                             class: calendar_date_classes(date, schedule.month_date) do %>
               <div class="day"><%= calendar_pretty_day(date) %></div>
               <ul class="events">
-                <% schedule.events_on(date).each do |event| %>
-                  <li data-id="<%= event.id %>"><%= event.title %></li>
-                <% end %>
+                <%= render partial: 'schedule/event',
+                           collection: schedule.events_on(date),
+                           as: :event %>
               </ul>
             <% end %>
           <% end %>

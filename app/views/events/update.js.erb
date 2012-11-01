@@ -1,0 +1,5 @@
+var event_html = "<%= escape_javascript(render(partial: 'schedule/event', locals: { event: @event })) %>";
+$('#event_<%= @event.id %>').replaceWith(event_html);
+$('#event_<%= @event.id %>').effect('highlight');
+
+$('#event_modal').hide();
