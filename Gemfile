@@ -20,4 +20,8 @@ end
 
 gem 'jquery-rails'
 
-gem 'puma', group: :development
+group :development do
+  gem 'puma'
+  gem 'turn'
+  gem 'minitest'
+end

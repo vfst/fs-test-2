@@ -1,7 +1,7 @@
 class Schedule
   attr_reader :year, :month, :first_day_of_week,
               :start_date, :end_date, :day_names
-  def initialize(year, month, first_day_of_week = 0)
+  def initialize(year = nil, month = nil, first_day_of_week = 0)
     @year, @month, @first_day_of_week = year, month, first_day_of_week
     @year ||= Date.today.year
     @month ||= Date.today.month
