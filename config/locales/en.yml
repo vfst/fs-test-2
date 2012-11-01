@@ -2,9 +2,15 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
   calendar:
     today: Today
+  event:
+    new:
+      title: New Event
+    actions:
+      create: Add this event
+      update: Save event
+      cancel: Cancel
   date:
     formats:
       not_so_short: '%B %e'

@@ -1,5 +1,8 @@
 class Event < ActiveRecord::Base
   attr_accessible :date, :recurring, :schedule_type, :title
+  default_value_for :date do
+    Date.today
+  end
   
   validates :date, :title, presence: true
 
