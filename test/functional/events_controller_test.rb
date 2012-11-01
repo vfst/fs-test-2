@@ -21,12 +21,7 @@ class EventsControllerTest < ActionController::TestCase
       post :create, event: { date: @event.date, recurring: @event.recurring, schedule_type: @event.schedule_type, title: @event.title }
     end
 
-    assert_redirected_to event_path(assigns(:event))
-  end
-
-  test "should show event" do
-    get :show, id: @event
-    assert_response :success
+    assert_redirected_to events_url
   end
 
   test "should get edit" do
@@ -36,7 +31,7 @@ class EventsControllerTest < ActionController::TestCase
 
   test "should update event" do
     put :update, id: @event, event: { date: @event.date, recurring: @event.recurring, schedule_type: @event.schedule_type, title: @event.title }
-    assert_redirected_to event_path(assigns(:event))
+    assert_redirected_to events_url
   end
 
   test "should destroy event" do
