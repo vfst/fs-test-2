@@ -27,13 +27,14 @@ form {
     background: $highlightColor;
     font-size: 66%;
 
-    .alternate {
-      float: right;
+    .alternate, .destroy {
       margin: 0 0 0 1em;
 
       &:visited {color: $linkColor}
       &:hover {color: $linkHover}
     }
+
+    .destroy {float: right}
   }
 }
 

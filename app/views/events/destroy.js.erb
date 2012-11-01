@@ -1,0 +1,4 @@
+$('#event_modal').hide();
+$('#event_<%= @event.id %>').hide('slow', function() {
+  $(this).remove();
+});

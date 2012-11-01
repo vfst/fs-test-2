@@ -49,7 +49,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
-    redirect_to events_url(date_params(@event))
+    respond_to do |format|
+      format.html { redirect_to events_url(date_params(@event)) }
+      format.js
+    end
   end
 
   private

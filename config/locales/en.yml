@@ -11,6 +11,7 @@ en:
       create: Add this event
       update: Save event
       cancel: Cancel
+      destroy: Destroy
   date:
     formats:
       not_so_short: '%B %e'

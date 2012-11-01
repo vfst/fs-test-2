@@ -12,5 +12,6 @@
     <%= f.submit @event.new_record? ? t('event.actions.create') : t('event.actions.update') %>
 
     <%= event_actions_cancel_link %>
+    <%= link_to_destroy_event @event unless @event.new_record? %>
   </div>
 <% end %>

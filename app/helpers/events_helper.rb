@@ -5,4 +5,10 @@ module EventsHelper
 
     link_to(t('event.actions.cancel'), events_path, link_opts)
   end
+
+  def link_to_destroy_event(event)
+    link_opts = { method: :delete, class: :destroy }
+    link_opts[:remote] = request.xhr?
+    link_to(t('event.actions.destroy'), event_path(event), link_opts)
+  end
 end
