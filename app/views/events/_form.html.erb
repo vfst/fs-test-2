@@ -1,13 +1,16 @@
 <%= form_for(@event) do |f| %>
-  <div class="line_field">
-    <%= f.text_field :title, placeholder: t('event.new.title'), autofocus: true %>
+  <div class="wrap">
+    <div class="line_field">
+      <%= f.text_field :title, placeholder: t('event.new.title'), autofocus: true %>
+    </div>
+    <div class="line_field date_field">
+      <%= f.text_field :date, placeholder: l(Date.today) %>
+    </div>
   </div>
-  <div class="line_field">
-    <%= f.text_field :date, placeholder: l(Date.today) %>
-  </div>
+
   <div class="actions">
     <%= f.submit @event.new_record? ? t('event.actions.create') : t('event.actions.update') %>
 
-    <%= link_to t('event.actions.cancel'), events_path, class: :alternative %>
+    <%= link_to t('event.actions.cancel'), events_path, class: :alternate %>
   </div>
 <% end %>

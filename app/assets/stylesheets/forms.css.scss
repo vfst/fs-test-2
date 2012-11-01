@@ -1,0 +1,57 @@
+@import "globals";
+
+form {
+  max-width: 30em;
+  margin: 0 auto;
+  font-size: 1.5em;
+
+  input {font-size: 1em}
+
+  .line_field input {
+    display: block;
+    padding: 5px 2px 0 2px;
+    border: none;
+    border-bottom: 1px dotted;
+    color: #333;
+    background: transparent;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: $lineFieldColor;
+    }
+  }
+
+  .actions {
+    margin: 1em 0 2em;
+    padding: 1em;
+    background: $highlightColor;
+    font-size: 66%;
+
+    .alternate {
+      float: right;
+      margin: 0 0 0 1em;
+
+      &:visited {color: $linkColor}
+      &:hover {color: $linkHover}
+    }
+  }
+}
+
+.new_event .line_field, .edit_event .line_field {
+  width: 72%;
+  float: left;
+  box-sizing: border-box;
+}
+
+.new_event .date_field, .edit_event .date_field {
+  width: 25%;
+  float: right;
+  box-sizing: border-box;
+
+  input {text-align: center}
+}
+
+.new_event .line_field input, .edit_event .line_field input {
+  width: 100%;
+  box-sizing: border-box;
+}
