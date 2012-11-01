@@ -22,7 +22,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
 
     if @event.save
-      redirect_to events_url, notice: 'Event was successfully created.'
+      redirect_to events_url(date_params(@event)), notice: 'Event was successfully created.'
     else
       render action: "new"
     end
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.update_attributes(params[:event])
-      redirect_to events_url, notice: 'Event was successfully updated.'
+      redirect_to events_url(date_params(@event)), notice: 'Event was successfully updated.'
     else
       render action: "edit"
     end
@@ -42,6 +42,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
-    redirect_to events_url
+    redirect_to events_url(date_params(@event))
+  end
+
+  private
+  def date_params(event)
+    { year: event.date.year, month: event.date.month}
   end
 end

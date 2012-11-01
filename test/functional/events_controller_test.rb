@@ -21,7 +21,7 @@ class EventsControllerTest < ActionController::TestCase
       post :create, event: { date_str: @event.date_str, recurring: @event.recurring, schedule_type: @event.schedule_type, title: @event.title }
     end
 
-    assert_redirected_to events_url
+    assert_redirected_to events_url(date_params(@event))
   end
 
   test "should get edit" do
@@ -31,7 +31,7 @@ class EventsControllerTest < ActionController::TestCase
 
   test "should update event" do
     put :update, id: @event, event: { date_str: @event.date_str, recurring: @event.recurring, schedule_type: @event.schedule_type, title: @event.title }
-    assert_redirected_to events_url
+    assert_redirected_to events_url(date_params(@event))
   end
 
   test "should destroy event" do
@@ -39,6 +39,11 @@ class EventsControllerTest < ActionController::TestCase
       delete :destroy, id: @event
     end
 
-    assert_redirected_to events_path
+    assert_redirected_to events_url(date_params(@event))
+  end
+
+  private
+  def date_params(event)
+    { year: event.date.year, month: event.date.month }
   end
 end
