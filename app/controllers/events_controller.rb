@@ -3,6 +3,8 @@
 # TODO: редактирование событий в модальном окне
 # TODO: перетаскивание событий по датам
 # TODO: выпадайка с месяцем/годом при щелчке на текущий месяц
+# TODO: показывать, что событие добавлено или изменилось
+# TODO: нормальный парсинг и вывод дат событий
 class EventsController < ApplicationController
   def index
     @schedule = Schedule.new(params[:year], params[:month])
