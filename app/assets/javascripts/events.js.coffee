@@ -1,12 +1,22 @@
 jQuery ->
-  $('.calendar__grid .date').click(->
-    $('#event_modal').removeData('modal')
-    $('#event_modal').modal(remote: "/events/new?date_str=#{@.dataset.date}")
+  $emodal = $('#event_modal')
+
+  $('.calendar__grid .date').click((e) ->
+    e.preventDefault()
+    $emodal.removeData('modal')
+    $emodal.find('.modal-body').load("/events/new?date_str=#{@.dataset.date}", ->
+      $emodal.modal('show')
+      $(@).find('#event_title').focus()
+    )
     false
   )
 
-  $('.calendar__grid .date .events').on('click', 'li', ->
-    $('#event_modal').removeData('modal')
-    $('#event_modal').modal(remote: "/events/#{@.dataset.id}/edit")
+  $('.calendar__grid .date .events').on('click', 'li', (e) ->
+    e.preventDefault()
+    $emodal.removeData('modal')
+    $emodal.find('.modal-body').load("/events/#{@.dataset.id}/edit", ->
+      $emodal.modal('show')
+      $(@).find('#event_title').focus()
+    )
     false
   )
