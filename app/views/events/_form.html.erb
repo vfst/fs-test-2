@@ -7,6 +7,30 @@
       <%= f.text_field :date_str, placeholder: l(Date.today) %>
     </div>
   </div>
+  <div class="wrap schedule_types_option">
+    <span class="schedule_types_toggle">
+      <%= f.check_box :recurring %>
+      <%= f.label :recurring, t('event.actions.repeat') %>
+    </span>
+    <div class="schedule_types <%= 'hidden' unless @event.recurring? %>">
+      <div>
+        <%= f.radio_button :schedule_type, :daily %>
+        <%= f.label :schedule_type, t('event.repeat.daily'), value: :daily %>
+      </div>
+      <div>
+        <%= f.radio_button :schedule_type, :weekly %>
+        <%= f.label :schedule_type, t('event.repeat.weekly'), value: :weekly %>
+      </div>
+      <div>
+        <%= f.radio_button :schedule_type, :monthly %>
+        <%= f.label :schedule_type, t('event.repeat.monthly'), value: :monthly %>
+      </div>
+      <div>
+        <%= f.radio_button :schedule_type, :yearly %>
+        <%= f.label :schedule_type, t('event.repeat.yearly'), value: :yearly %>
+      </div>
+    </div>
+  </div>
 
   <div class="actions">
     <%= f.submit @event.new_record? ? t('event.actions.create') : t('event.actions.update') %>

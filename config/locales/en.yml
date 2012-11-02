@@ -12,6 +12,12 @@ en:
       update: Save event
       cancel: Cancel
       destroy: Destroy
+      repeat: Repeat...
+    repeat:
+      daily: daily
+      weekly: weekly
+      monthly: monthly
+      yearly: yearly
   date:
     formats:
       not_so_short: '%B %e'

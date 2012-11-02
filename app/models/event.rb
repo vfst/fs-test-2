@@ -59,14 +59,14 @@ class Event < ActiveRecord::Base
   end
 
   def weekly?
-    recurring && schedule_type == WEEKLY
+    recurring? && schedule_type == WEEKLY
   end
 
   def monthly?
-    recurring && schedule_type == MONTHLY
+    recurring? && schedule_type == MONTHLY
   end
 
   def yearly?
-    recurring && schedule_type == YEARLY
+    recurring? && schedule_type == YEARLY
   end
 end

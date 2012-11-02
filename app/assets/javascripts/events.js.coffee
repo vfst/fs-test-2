@@ -1,6 +1,22 @@
 jQuery ->
   $emodal = $('#event_modal')
-  $('[data-toggle]').click(-> $($(@).attr('data-toggle')).toggle())
+  $('[data-toggle]').live('click', ->
+    $($(@).attr('data-toggle')).toggle()
+    false
+  )
+
+  $('.schedule_types_toggle').live('click', (e) ->
+    $checkbox = $(@).find('input:checkbox')
+    $schedule_types = $('.schedule_types')
+
+    if $checkbox.is(':checked')
+      $('.schedule_types').show()
+      $checkbox.attr('checked', true)
+    else
+      $schedule_types.hide()
+      $schedule_types.find('input:radio').attr('checked', false)
+      $checkbox.attr('checked', false)
+  )
 
   $('.calendar__grid .date').click(->
     $emodal.removeData('modal')
