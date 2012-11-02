@@ -75,5 +75,9 @@
   .other_month {color: $colorless}
   .other_month .day {color: $calendarBorder}
 
-  .events {padding-left: .5em}
+  .events {
+    padding-left: .5em;
+
+    li {cursor: pointer}
+  }
 }

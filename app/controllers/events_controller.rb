@@ -1,5 +1,4 @@
 # TODO: работа с повторяющимися событиями
-# TODO: перетаскивание событий по датам
 # TODO: выпадайка с месяцем/годом при щелчке на текущий месяц
 class EventsController < ApplicationController
   def index
@@ -41,6 +40,15 @@ class EventsController < ApplicationController
         format.html { render action: "edit" }
         format.js { render nothing: true, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def move
+    @event = Event.find(params[:id])
+    @event.update_attributes(params[:event])
+
+    respond_to do |format|
+      format.js
     end
   end
 

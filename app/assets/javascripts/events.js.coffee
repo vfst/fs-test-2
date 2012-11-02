@@ -18,3 +18,15 @@ jQuery ->
     )
     false
   )
+
+  $('.calendar__grid .date .events li').draggable(revert: 'invalid')
+  $('.calendar__grid .date').droppable(
+    accept: '.event',
+    drop: (e, ui) ->
+      that = @
+      event_id = ui.draggable.attr('data-id')
+      console.log(ui.draggable)
+      $.post("/events/#{event_id}/move", { _method: 'put', event: { date_str: $(@).attr('data-date') } }, ->
+        $(that).find('.events').append(ui.draggable.attr('style', 'position: relative'))
+      )
+  )
