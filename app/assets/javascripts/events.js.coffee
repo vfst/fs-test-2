@@ -1,8 +1,7 @@
 jQuery ->
   $emodal = $('#event_modal')
 
-  $('.calendar__grid .date').click((e) ->
-    e.preventDefault()
+  $('.calendar__grid .date').click(->
     $emodal.removeData('modal')
     $emodal.find('.modal-body').load("/events/new?date_str=#{@.dataset.date}", ->
       $emodal.modal('show')
@@ -11,8 +10,7 @@ jQuery ->
     false
   )
 
-  $('.calendar__grid .date .events').on('click', 'li', (e) ->
-    e.preventDefault()
+  $('.calendar__grid .date .events').on('click', 'li', ->
     $emodal.removeData('modal')
     $emodal.find('.modal-body').load("/events/#{@.dataset.id}/edit", ->
       $emodal.modal('show')
