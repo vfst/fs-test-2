@@ -24,7 +24,7 @@ class EventsController < ApplicationController
         format.js
       else
         format.html { render action: "new" }
-        format.js { render nothing: true, status: :unprocessable_entity }
+        format.js { head :unprocessable_entity }
       end
     end
   end
@@ -38,7 +38,7 @@ class EventsController < ApplicationController
         format.js
       else
         format.html { render action: "edit" }
-        format.js { render nothing: true, status: :unprocessable_entity }
+        format.js { head :unprocessable_entity }
       end
     end
   end
