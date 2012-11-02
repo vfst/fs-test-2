@@ -49,7 +49,7 @@ class Schedule
 
     range.each do |date|
       @groupped_events[date] ||= []
-      recurring.each { |event| @groupped_events[date] << event if event.occur_at?(date) }
+      recurring.each { |event| @groupped_events[date] << event if event.occur_on?(date) }
     end
   end
 end

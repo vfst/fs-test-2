@@ -37,7 +37,7 @@ class Event < ActiveRecord::Base
     !recurring?
   end
 
-  def occur_at?(other_date)
+  def occur_on?(other_date)
     if recurring?
       # return false if event was created before `other_date`
       return false if other_date < date
