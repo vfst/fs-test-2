@@ -2,9 +2,9 @@ class Schedule
   attr_reader :year, :month, :first_day_of_week,
               :start_date, :end_date, :day_names
   def initialize(year = nil, month = nil, first_day_of_week = 0)
-    @year, @month, @first_day_of_week = year, month, first_day_of_week
-    @year ||= Date.today.year
-    @month ||= Date.today.month
+    @year, @month, @first_day_of_week = year.to_i, month.to_i, first_day_of_week
+    @year = Date.today.year if @year == 0
+    @month = Date.today.month if @month == 0
 
     detect_date_range
     prepare_day_names

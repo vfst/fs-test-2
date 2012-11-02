@@ -1,5 +1,6 @@
 jQuery ->
   $emodal = $('#event_modal')
+  $('[data-toggle]').click(-> $($(@).attr('data-toggle')).toggle())
 
   $('.calendar__grid .date').click(->
     $emodal.removeData('modal')

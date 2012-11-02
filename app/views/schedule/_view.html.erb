@@ -1,11 +1,11 @@
 <article class="calendar">
   <header>
     <h2>
-      <%= schedule.month_date.strftime('%B %Y') %>
+      <span class="calendar__range" data-toggle=".calendar nav.secondary">
+        <%= schedule.month_date.strftime('%B %Y') %>
+      </span>
     </h2>
-    <nav>
-      <%= calendar_nav(schedule) %>
-    </nav>
+    <%= render partial: 'schedule/nav', locals: { schedule: schedule } %>
   </header>
   <table class="calendar__grid" colspan="0" rowspan="0">
     <thead>

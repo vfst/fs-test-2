@@ -1,0 +1,27 @@
+<nav class="secondary modal">
+  <dl class="modal-body">
+    <% years = [schedule.year, schedule.year + 1]
+       months = I18n.t('date.abbr_month_names').compact %>
+
+    <% years.each do |year| %>
+      <dt><%= year %></dt>
+      <dd>
+        <ul>
+          <% months.each_with_index do |month, i| %>
+            <li>
+              <% klass = (schedule.year == year && schedule.month == i + 1) ? 'current' : '' %>
+              <%= link_to month, events_path(year: year, month: i + 1), class: klass %>
+            </li>
+          <% end %>
+        </ul>
+      </dd>
+    <% end %>
+  </dl>
+</nav>
+<nav class="primary">
+<%= link_to('◀', events_path(year: schedule.month_date.prev_month.year,
+                             month: schedule.month_date.prev_month.month)) -%>
+<%= link_to(t('calendar.today'), events_path) -%>
+<%= link_to('▶', events_path(year: schedule.month_date.next_month.year,
+                             month: schedule.month_date.next_month.month)) %>
+</nav>
