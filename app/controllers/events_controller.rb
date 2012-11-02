@@ -1,4 +1,9 @@
 # encoding: UTF-8
+# TODO: отделить повторяющиеся событий от обычных в ui
+# TODO: перетаскивание оригинальных повторяющихся событий
+# TODO: удаление повторяющихся событий
+# TODO: редактирование, изменение повторяющихся событий
+# TODO: событие было обыкновенным, а стало повторяющимся
 class EventsController < ApplicationController
   def index
     @schedule = Schedule.new(params[:year], params[:month])
