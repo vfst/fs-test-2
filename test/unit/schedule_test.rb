@@ -31,19 +31,31 @@ class ScheduleTest < ActiveSupport::TestCase
     assert_equal %w(Wed Thu Fri Sat Sun Mon Tue), schedule.day_names
   end
 
-  test "should collect all events in date range" do
+  test "should collect all events in date range including recurring" do
     schedule = Schedule.new(2012, 11)
-    assert_equal 4, schedule.events.size
+    assert_equal 5, schedule.events.size
+    assert !schedule.events.include?(events(:two))
   end
 
-  test "should group events by date" do
+  test "should correctly group events by date" do
     schedule = Schedule.new(2012, 11)
-    assert_equal 3, schedule.events_on(Date.new(2012, 10, 31)).size
-    assert_equal 1, schedule.events_on(Date.new(2012, 11, 10)).size
+
+    october_31_events = schedule.events_on(Date.new(2012, 10, 31))
+    assert_equal 3, october_31_events.size
+
+    assert october_31_events.include?(events(:one))
+    assert october_31_events.include?(events(:weekly))
+    assert october_31_events.include?(events(:daily))
+
+    november_10_events = schedule.events_on(Date.new(2012, 11, 10))
+    assert_equal 2, november_10_events.size
+
+    assert november_10_events.include?(events(:daily))
+    assert november_10_events.include?(events(:monthly))
   end
 
   test "should return empty array if no events are found" do
-    schedule = Schedule.new(2012, 11)
-    assert_equal [], schedule.events_on(Date.new(2012, 11, 20))
+    schedule = Schedule.new(2010, 11)
+    assert_equal [], schedule.events_on(Date.new(2010, 11, 20))
   end
 end

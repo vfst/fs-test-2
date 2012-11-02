@@ -17,7 +17,7 @@ class Schedule
   end
 
   def events_on(date)
-    @groupped_events[date] || []
+    @groupped_events[date]
   end
 
   def range
@@ -43,6 +43,13 @@ class Schedule
   end
 
   def group_events
-    @groupped_events = events.group_by(&:date)
+    # separate one-time events from recurring
+    recurring = events.select(&:recurring?)
+    @groupped_events = events.select(&:one_time?).group_by(&:date)
+
+    range.each do |date|
+      @groupped_events[date] ||= []
+      recurring.each { |event| @groupped_events[date] << event if event.occur_at?(date) }
+    end
   end
 end
