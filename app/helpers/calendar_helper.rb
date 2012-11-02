@@ -1,5 +1,4 @@
 # encoding: UTF-8
-
 module CalendarHelper
   def calendar_for(schedule)
     render partial: 'schedule/view', locals: { schedule: schedule }

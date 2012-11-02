@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Schedule
   attr_reader :year, :month, :first_day_of_week,
               :start_date, :end_date, :day_names

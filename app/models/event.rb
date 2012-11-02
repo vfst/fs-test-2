@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Event < ActiveRecord::Base
   attr_accessible :date_str, :recurring, :schedule_type, :title
   default_value_for :date do

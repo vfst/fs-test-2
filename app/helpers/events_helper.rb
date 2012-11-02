@@ -1,3 +1,4 @@
+# encoding: UTF-8
 module EventsHelper
   def event_actions_cancel_link
     link_opts = { class: :alternate }
