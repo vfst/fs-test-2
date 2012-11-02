@@ -1,9 +1,6 @@
 # TODO: работа с повторяющимися событиями
 # TODO: перетаскивание событий по датам
-# TODO: удаление событий
 # TODO: выпадайка с месяцем/годом при щелчке на текущий месяц
-# TODO: иконка корзины для ссылки на удаление
-# TODO: autofocus не во всех браузерах работает (FF!)
 class EventsController < ApplicationController
   def index
     @schedule = Schedule.new(params[:year], params[:month])
