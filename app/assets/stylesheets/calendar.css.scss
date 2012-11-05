@@ -83,10 +83,7 @@
 .calendar__range {
   cursor: pointer;
 
-  &:hover {
-    color: $linkHover;
-    text-decoration: underline;
-  }
+  &:hover {color: $linkHover}
 }
 
 
