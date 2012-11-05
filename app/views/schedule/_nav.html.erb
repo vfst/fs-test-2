@@ -1,4 +1,7 @@
-<nav class="secondary modal">
+<nav class="secondary calendar__new_event">
+  <%= link_to t('event.actions.new'), new_event_path %>
+</nav>
+<nav class="calendar__range__picker secondary modal">
   <dl class="modal-body">
     <% years = [schedule.year, schedule.year + 1]
        months = I18n.t('date.abbr_month_names').compact %>
@@ -18,7 +21,7 @@
     <% end %>
   </dl>
 </nav>
-<nav class="primary">
+<nav class="calendar__navigation primary">
 <%= link_to('◀', events_path(year: schedule.month_date.prev_month.year,
                              month: schedule.month_date.prev_month.month)) -%>
 <%= link_to(t('calendar.today'), events_path) -%>

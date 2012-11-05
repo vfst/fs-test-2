@@ -17,7 +17,7 @@ jQuery ->
   )
 
   # new event
-  $('.calendar__grid .date').click(->
+  $('.calendar__grid .date, .calendar__new_event a').click(->
     $emodal.removeData('modal')
     $emodal.find('.modal-body').load("/events/new?date_str=#{@.dataset.date}", ->
       $emodal.modal('show')

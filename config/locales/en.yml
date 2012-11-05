@@ -10,6 +10,7 @@ en:
     new:
       title: New Event
     actions:
+      new: New Event
       create: Add this event
       update: Save event
       cancel: Cancel

@@ -27,7 +27,15 @@
   }
 }
 
-.calendar  nav.primary {
+nav.calendar__new_event {
+  position: absolute;
+  top: 2px; left: 0;
+  font-size: 133%;
+
+  a {color: $linkColor}
+}
+
+.calendar__navigation {
   position: absolute;
   top: 0; right: 0;
   padding: 2px 0;
@@ -45,7 +53,7 @@
   }
 }
 
-.calendar nav.secondary {
+.calendar__range__picker {
   overflow: hidden;
   position: absolute;
   top: 24px; left: 50%;
