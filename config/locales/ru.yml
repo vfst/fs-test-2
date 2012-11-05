@@ -1,0 +1,24 @@
+ru:
+  site:
+    title: 'Codename: Calendar'
+  calendar:
+    today: Сегодня
+  event:
+    new:
+      title: Новое событие
+    actions:
+      new: Новое событие
+      create: Добавить
+      update: Сохранить
+      cancel: Отмена
+      destroy: Удалить
+      repeat: Повторять...
+    repeat:
+      daily: каждый день
+      weekly: каждую неделю
+      monthly: каждый месяц
+      yearly: каждый год
+  date:
+    formats:
+      not_so_short: '%B %e'
+      month_and_year: '%B %Y'

@@ -24,3 +24,4 @@ en:
   date:
     formats:
       not_so_short: '%B %e'
+      month_and_year: '%B %Y'

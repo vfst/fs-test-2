@@ -2,7 +2,7 @@
   <header>
     <h2>
       <span class="calendar__range" data-toggle=".calendar__range__picker">
-        <%= schedule.month_date.strftime('%B %Y') %>
+        <%= l(schedule.month_date, format: :month_and_year) %>
       </span>
     </h2>
     <%= render partial: 'schedule/nav', locals: { schedule: schedule } %>

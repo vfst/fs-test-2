@@ -4,7 +4,7 @@
 <nav class="calendar__range__picker secondary modal">
   <dl class="modal-body">
     <% years = [schedule.year, schedule.year + 1]
-       months = I18n.t('date.abbr_month_names').compact %>
+       months = t('date.abbr_month_names').compact %>
 
     <% years.each do |year| %>
       <dt><%= year %></dt>

@@ -5,6 +5,7 @@ gem 'rails', '3.2.8'
 gem 'sqlite3'
 gem 'russian'
 gem 'default_value_for'
+gem 'rack-contrib'
 
 
 # Gems used only for assets and not required
