@@ -17,7 +17,7 @@ jQuery ->
       eventDate.getTime() is date.getTime()
 
   eventToHTML = (data) ->
-    "<li data-id=\"#{data.id}\" class=\"#{data.classes}\" style=\"position: relative\">#{data.title}</li>"
+    "<li data-id=\"#{data.id}\" class=\"#{data.classes}\">#{data.title}</li>"
 
   updateEvent = (data) ->
     $(".event_#{data.id}").remove()
