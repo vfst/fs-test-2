@@ -11,7 +11,7 @@ jQuery ->
         when 'daily' then true
         when 'weekly' then eventDate.getDay() is date.getDay()
         when 'monthly' then eventDate.getDate() is date.getDate()
-        when 'yearly' then (eventDate.getDate() is date.getDate) and (eventDate.getMonth() is date.getMonth())
+        when 'yearly' then (eventDate.getDate() is date.getDate()) and (eventDate.getMonth() is date.getMonth())
         else false
     else
       eventDate.getTime() is date.getTime()
