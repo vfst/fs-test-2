@@ -127,8 +127,17 @@
   .other_month .day {color: $calendarBorder}
 
   .events {
-    padding: 0 0 8px 8px;
+    padding: 0 0 8px;
+    color: $colorless;
 
-    li {cursor: pointer}
+    li span {
+      cursor: pointer;
+      color: $bodyColor;
+    }
+    .cloned span {
+      padding-left: 14px;
+      background: image-url("repeat.gif") left center no-repeat;
+      color: $colorless
+    }
   }
 }

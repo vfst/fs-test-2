@@ -37,16 +37,17 @@ class Event < ActiveRecord::Base
     !recurring?
   end
 
-  def classes
+  def classes(other_date = nil)
     klasses = %w(event)
     klasses << "event_#{id}"
 
     if recurring?
       klasses << 'recurring'
       klasses << schedule_type
+      klasses << 'cloned' if other_date.present? && other_date != date
     end
 
-    klasses.join(' ')
+    klasses
   end
 
   def as_json(options = {})

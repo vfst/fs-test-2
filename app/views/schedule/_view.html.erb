@@ -25,6 +25,7 @@
               <ul class="events">
                 <%= render partial: 'schedule/event',
                            collection: schedule.events_on(date),
+                           locals: { date: date },
                            as: :event %>
               </ul>
             <% end %>

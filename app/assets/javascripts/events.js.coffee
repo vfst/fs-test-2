@@ -16,18 +16,24 @@ jQuery ->
     else
       eventDate.getTime() is date.getTime()
 
-  eventToHTML = (data) ->
-    "<li data-id=\"#{data.id}\" class=\"#{data.classes}\">#{data.title}</li>"
+  eventToHTML = (data, date) ->
+    extras = ''
+    if date? and data.recurring and (date.getTime() isnt (new Date(data.date)).getTime())
+      extras = 'cloned'
+
+    "<li data-id=\"#{data.id}\" class=\"#{data.classes.join(' ')} #{extras}\">
+      <span>#{data.title}</span>
+     </li>"
 
   updateEvent = (data) ->
     $(".event_#{data.id}").remove()
-    eventHTML = eventToHTML(data)
 
     for date in $('.calendar__grid .date')
       _date = date.dataset.date
       if eventOccursOn(data, new Date(_date))
-        $(eventHTML).appendTo(".calendar__grid .date[data-date=#{_date}] .events")
-                    .effect('highlight').draggable()
+        $elem = $(eventToHTML(data, new Date(_date)))
+        $elem.appendTo(".calendar__grid .date[data-date=#{_date}] .events").effect('highlight')
+        $elem.draggable(revert: 'invalid') unless $elem.is('.cloned')
 
 
   $('.modal-body').on('ajax:success', 'form', (e, data) ->
@@ -35,7 +41,7 @@ jQuery ->
     $emodal.hide()
   )
 
-  $('.calendar__grid .date .events li').draggable(revert: 'invalid')
+  $('.calendar__grid .date .events li:not(.cloned)').draggable(revert: 'invalid')
   $('.calendar__grid .date').droppable(
     accept: '.event',
     drop: (e, ui) ->
