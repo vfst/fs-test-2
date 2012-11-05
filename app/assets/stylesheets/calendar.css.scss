@@ -36,7 +36,7 @@ nav.calendar__new_event {
   a {color: $linkColor}
 }
 
-.calendar__navigation {
+nav.calendar__navigation {
   position: absolute;
   top: 0; right: 0;
   padding: 2px 0;
@@ -54,12 +54,12 @@ nav.calendar__new_event {
   }
 }
 
-.calendar__range__picker {
+nav.calendar__range__picker {
   overflow: hidden;
   position: absolute;
   top: 24px; left: 50%;
-  margin: 0 0 0 -240px;
-  min-width: 480px;
+  margin: 0 0 0 -260px;
+  min-width: 520px;
   width: auto;
   display: none;
 
