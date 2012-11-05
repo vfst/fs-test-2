@@ -1,8 +1,6 @@
 # encoding: UTF-8
 # TODO: отделить повторяющиеся событий от обычных в ui
 # TODO: перетаскивание оригинальных повторяющихся событий
-# TODO: редактирование, изменение повторяющихся событий
-# TODO: событие было обыкновенным, а стало повторяющимся
 class EventsController < ApplicationController
   def index
     @schedule = Schedule.new(params[:year], params[:month])
@@ -24,7 +22,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.save
         format.html { redirect_to events_url(date_params(@event)), notice: 'Event was successfully created.' }
-        format.js
+        format.js { render json: @event, content_type: :json }
       else
         format.html { render action: "new" }
         format.js { head :unprocessable_entity }
@@ -38,7 +36,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       if @event.update_attributes(params[:event])
         format.html { redirect_to events_url(date_params(@event)), notice: 'Event was successfully updated.' }
-        format.js
+        format.js { render json: @event, content_type: :json }
       else
         format.html { render action: "edit" }
         format.js { head :unprocessable_entity }

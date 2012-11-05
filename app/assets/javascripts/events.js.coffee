@@ -1,5 +1,25 @@
 jQuery ->
   $emodal = $('#event_modal')
+
+  eventOccursOn = (event, date) ->
+    eventDate = new Date(event.date)
+
+    if event.recurring
+      return false if date < eventDate
+
+      switch event.schedule_type
+        when 'daily' then true
+        when 'weekly' then eventDate.getDay() is date.getDay()
+        when 'monthly' then eventDate.getDate() is date.getDate()
+        when 'yearly' then (eventDate.getDate() is date.getDate) and (eventDate.getMonth() is date.getMonth())
+        else false
+    else
+      eventDate.getTime() is date.getTime()
+
+  eventToHTML = (data) ->
+    "<li data-id=\"#{data.id}\" class=\"#{data.classes}\">#{data.title}</li>"
+
+
   $('[data-toggle]').live('click', ->
     $($(@).attr('data-toggle')).toggle()
     false
@@ -10,8 +30,9 @@ jQuery ->
     $schedule_types = $('.schedule_types')
 
     if $checkbox.is(':checked')
-      $('.schedule_types').show()
+      $schedule_types.show()
       $checkbox.attr('checked', true)
+      $schedule_types.find('input:first').attr('checked', true)
     else
       $schedule_types.hide()
       $schedule_types.find('input:radio').attr('checked', false)
@@ -34,6 +55,19 @@ jQuery ->
       $(@).find('#event_title').focus()
     )
     false
+  )
+
+  $('.modal-body').on('ajax:success', 'form', (e, data) ->
+    $(".calendar__grid .event_#{data.id}").remove()
+    eventHTML = eventToHTML(data)
+
+    for date in $('.calendar__grid .date')
+      _date = date.dataset.date
+      if eventOccursOn(data, new Date(_date))
+        $(eventHTML).appendTo(".calendar__grid .date[data-date=#{_date}] .events")
+                    .effect('highlight')
+
+    $emodal.hide()
   )
 
   $('.calendar__grid .date .events li').draggable(revert: 'invalid')

@@ -37,6 +37,22 @@ class Event < ActiveRecord::Base
     !recurring?
   end
 
+  def classes
+    klasses = %w(event)
+    klasses << "event_#{id}"
+
+    if recurring?
+      klasses << 'recurring'
+      klasses << schedule_type
+    end
+
+    klasses.join(' ')
+  end
+
+  def as_json(options = {})
+    super(options.merge(except: [:created_at, :updated_at], methods: :classes))
+  end
+
   def occur_on?(other_date)
     if recurring?
       # return false if event was created before `other_date`
