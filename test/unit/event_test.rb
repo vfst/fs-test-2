@@ -20,45 +20,58 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test "should return false from occurs_on? for recurring events in the future" do
-    e = build_recurring_event(schedule_type: Event::DAILY)
+    e = events(:daily)
 
     assert e.daily?
-    assert !e.occurs_on?(Date.new(2010, 1, 1))
+    assert !e.occurs_on?(e.date.advance(years: -1))
   end
 
   test "should return correct value from occurs_on? for daily events" do
-    e = build_recurring_event(schedule_type: Event::DAILY)
+    e = events(:daily)
 
     assert e.daily?
     assert e.occurs_on?(Date.new(2020, 3, 3))
   end
 
   test "should return correct value from occurs_on? for weekly events" do
-    e = build_recurring_event(schedule_type: Event::WEEKLY)
+    e = events(:weekly)
 
     assert e.weekly?
-    assert e.occurs_on?(Date.new(2020, 2, 16))
-    assert !e.occurs_on?(Date.new(2020, 2, 19))
+    assert e.occurs_on?(e.date.advance(weeks: 2))
+    assert !e.occurs_on?(e.date.advance(days: 1))
   end
 
   test "should return correct value from occurs_on? for monthly events" do
-    e = build_recurring_event(schedule_type: Event::MONTHLY)
+    e = events(:monthly)
 
     assert e.monthly?
-    assert e.occurs_on?(Date.new(2020, 3, 2))
-    assert !e.occurs_on?(Date.new(2020, 2, 16))
+    assert e.occurs_on?(e.date.advance(months: 3))
+    assert !e.occurs_on?(e.date.advance(months: 1, days: 3))
   end
 
   test "should return correct value from occurs_on? for yearly events" do
-    e = build_recurring_event(schedule_type: Event::YEARLY)
+    e = events(:yearly)
 
     assert e.yearly?
-    assert e.occurs_on?(Date.new(2021, 2, 2))
-    assert !e.occurs_on?(Date.new(2020, 3, 2))
+    assert e.occurs_on?(e.date.advance(years: 5))
+    assert !e.occurs_on?(e.date.advance(months: 1))
   end
 
-  private
-  def build_recurring_event(params = {})
-    Event.new({ date_str: '2020-02-02', recurring: true }.merge(params))
+  test "should not include .cloned class if date was not specified" do
+    e = events(:daily)
+
+    assert !e.classes.include?('cloned')
+  end
+
+  test "should not include .cloned class if date is event.date" do
+    e = events(:daily)
+
+    assert !e.classes(e.date).include?('cloned')
+  end
+
+  test "should include .cloned class if necessary" do
+    e = events(:daily)
+
+    assert e.classes(e.date.advance(months: 1)).include?('cloned')
   end
 end
