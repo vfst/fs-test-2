@@ -22,7 +22,7 @@ jQuery ->
       extras = 'cloned'
 
     "<li data-id=\"#{data.id}\" class=\"#{data.classes.join(' ')} #{extras}\">
-      <span>#{data.title}</span>
+      <a href=\"/events/#{data.id}/edit\">#{data.title}</a>
      </li>"
 
   updateEvent = (data) ->

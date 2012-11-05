@@ -135,11 +135,11 @@ nav.calendar__range__picker {
     padding: 0 8px 8px 0;
     color: $colorless;
 
-    li span {
-      cursor: pointer;
+    li a, li a:visited {
       color: $bodyColor;
+      text-decoration: none;
     }
-    .cloned span {
+    .cloned a {
       padding-left: 14px;
       background: image-url("repeat.gif") left center no-repeat;
       color: $colorless
