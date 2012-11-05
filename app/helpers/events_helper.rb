@@ -8,6 +8,7 @@ module EventsHelper
   end
 
   def link_to_destroy_event(event)
+    # TODO: :confirm с учетом ситуации: удаляется единичное событие или куча повторяющихся
     link_opts = { method: :delete, class: :destroy, title: t('event.actions.destroy') }
     link_opts[:remote] = request.xhr?
     link_to('', event_path(event), link_opts)
