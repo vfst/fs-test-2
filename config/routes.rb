@@ -1,7 +1,5 @@
 FsTest2::Application.routes.draw do
-  resources :events, except: :show do
-    put :move, on: :member
-  end
+  resources :events, except: :show
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

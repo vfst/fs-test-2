@@ -1,6 +1,5 @@
 # encoding: UTF-8
 # TODO: отделить повторяющиеся событий от обычных в ui
-# TODO: перетаскивание оригинальных повторяющихся событий
 class EventsController < ApplicationController
   def index
     @schedule = Schedule.new(params[:year], params[:month])
@@ -41,15 +40,6 @@ class EventsController < ApplicationController
         format.html { render action: "edit" }
         format.js { head :unprocessable_entity }
       end
-    end
-  end
-
-  def move
-    @event = Event.find(params[:id])
-    @event.update_attributes(params[:event])
-
-    respond_to do |format|
-      format.js
     end
   end
 

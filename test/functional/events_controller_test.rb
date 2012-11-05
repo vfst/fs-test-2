@@ -47,12 +47,6 @@ class EventsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should move event to another date" do
-    put :move, id: @event, event: { date_str: '2020-01-01' }, format: :js
-    assert_equal @event.reload.date, Date.new(2020, 1, 1)
-    assert_response :success
-  end
-
   test "should destroy event" do
     assert_difference('Event.count', -1) do
       delete :destroy, id: @event
