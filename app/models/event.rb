@@ -53,7 +53,7 @@ class Event < ActiveRecord::Base
     super(options.merge(except: [:created_at, :updated_at], methods: :classes))
   end
 
-  def occur_on?(other_date)
+  def occurs_on?(other_date)
     if recurring?
       # return false if event was created before `other_date`
       return false if other_date < date
