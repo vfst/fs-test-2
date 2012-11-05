@@ -36,10 +36,12 @@ jQuery ->
         $elem.draggable(revert: 'invalid') unless $elem.is('.cloned')
 
 
-  $('.modal-body').on('ajax:success', 'form', (e, data) ->
+  $emodal.on('ajax:success', 'form', (e, data) ->
     updateEvent(data)
     $emodal.hide()
   )
+
+  $emodal.on('ajax:error', 'form', -> $emodal.effect('shake'))
 
   $('.calendar__grid .date .events li:not(.cloned)').draggable(revert: 'invalid')
   $('.calendar__grid .date').droppable(
