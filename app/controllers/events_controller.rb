@@ -1,12 +1,11 @@
 # encoding: UTF-8
 # TODO: выпадайка с месяцем-годом не влезает с русской локалью
 # TODO: пользователь и сам может завадать локаль
-# TODO: добавить пользователей и регистрацию с devise
 # TODO: ссылка на календарь со всеми событиями
 # TODO: привязка событий к пользователям
 # TODO: pjax?
 class EventsController < ApplicationController
-#  before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def index
     @schedule = Schedule.new(params[:year], params[:month])
