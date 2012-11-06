@@ -3,6 +3,8 @@
 # TODO: пользователь и сам может завадать локаль
 # TODO: ссылка на календарь со всеми событиями
 # TODO: привязка событий к пользователям
+# TODO: flash[:notice] и flash[:alert]
+# TODO: редактирование профиля
 # TODO: pjax?
 class EventsController < ApplicationController
   before_filter :authenticate_user!
