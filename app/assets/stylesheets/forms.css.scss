@@ -46,6 +46,35 @@ form {
   }
 }
 
+.g_slim form {
+  font-size: 1em;
+  max-width: none;
+
+  input {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  input[type="submit"], input[type="checkbox"], input[type="radio"] {
+    width: auto;
+  }
+
+  .field {
+    margin: 0 0 1em;
+
+    label {display: block}
+    &.field-horizontal label {display: inline}
+  }
+
+  .actions {
+    margin: 1em -2em 2em;
+    padding: 1em 2em;
+    font-size: 1em;
+    background: $highlightColor;
+  }
+}
+
 .new_event .line_field, .edit_event .line_field {
   width: 72%;
   float: left;
