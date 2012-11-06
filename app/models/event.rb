@@ -14,6 +14,8 @@ class Event < ActiveRecord::Base
   
   validates :date, :title, presence: true
 
+  belongs_to :user
+
   # select all one-time in specified range + all recurring events whose dates are already in the past
   def self.at_range(start_date, end_date)
     where('(date >= :start_date and date <= :end_date and recurring = :r_false)
