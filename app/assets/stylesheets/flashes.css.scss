@@ -1,0 +1,42 @@
+@import 'globals';
+
+.flash {
+  padding: 8px 35px 8px 14px;
+  margin: 9px 0;
+  color: $flashColor;
+  text-shadow: 0 1px 0  rgba(255, 255, 255, .5);
+  background: $flashBgColor;
+  border: 1px solid $flashBorder;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+.g_slim .flash {
+  margin: 0 -2em 1em;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border-width: 1px 0;
+}
+
+.flash .close {
+  float: right;
+  position: relative;
+  right: -21px;
+  cursor: pointer;
+  font-style: normal;
+  line-height: 18px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+
+  &:hover {opacity: .8}
+}
+
+.notice {
+  color: $flashNoticeColor;
+  background: $flashNoticeBgColor;
+  border-color: $flashNoticeBorder;
+}

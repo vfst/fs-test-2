@@ -7,17 +7,17 @@
   </div>
   <div class="field">
     <%= f.label :email %>
-    <%= f.email_field :email, required: true %>
+    <%= f.email_field :email, required: true, autocomplete: 'off' %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
-    <%= f.password_field :password, required: true %>
+    <%= f.password_field :password, required: true, autocomplete: 'off' %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, required: true %>
+    <%= f.password_field :password_confirmation, required: true, autocomplete: 'off' %>
   </div>
 
   <div class="actions">

@@ -1,7 +1,6 @@
 # encoding: UTF-8
 # TODO: выпадайка с месяцем-годом не влезает с русской локалью
 # TODO: ссылка на календарь со всеми событиями
-# TODO: flash[:notice] и flash[:alert]
 class EventsController < ApplicationController
   before_filter :authenticate_user!
 
