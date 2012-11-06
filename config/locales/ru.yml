@@ -1,4 +1,12 @@
 ru:
+  helpers:
+    label:
+      user:
+        email: Email
+        password: Пароль
+        remember_me: Запомнить меня
+        password_confirmation: Еще раз пароль
+        
   site:
     title: 'Codename: Calendar'
   calendar:

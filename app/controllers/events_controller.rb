@@ -6,6 +6,8 @@
 # TODO: привязка событий к пользователям
 # TODO: pjax?
 class EventsController < ApplicationController
+#  before_filter :authenticate_user!
+
   def index
     @schedule = Schedule.new(params[:year], params[:month])
   end

@@ -7,6 +7,8 @@ gem 'russian'
 gem 'default_value_for'
 gem 'rack-contrib'
 gem 'devise'
+gem 'devise-i18n-views'
+gem 'devise-i18n'
 
 
 # Gems used only for assets and not required
