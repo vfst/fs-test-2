@@ -1,6 +1,12 @@
 # encoding: UTF-8
 # TODO: выпадайка с месяцем-годом не влезает с русской локалью
 # TODO: ссылка на календарь со всеми событиями
+# TODO: favicon
+# TODO: print.css
+# TODO: перевод флешей
+# TODO: ie
+# TODO: deploy на heroku
+# TODO: почта, восстановление пароля
 class EventsController < ApplicationController
   before_filter :authenticate_user!
 
