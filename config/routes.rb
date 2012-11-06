@@ -1,5 +1,6 @@
 FsTest2::Application.routes.draw do
   resources :events, except: :show
+  root to: 'events#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
