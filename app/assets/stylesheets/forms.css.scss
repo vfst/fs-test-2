@@ -44,6 +44,11 @@ form {
       background: image-url('trash.gif') no-repeat;
     }
   }
+
+  .hint {
+    font-size: 75%;
+    color: $colorless
+  }
 }
 
 .g_slim form {
@@ -64,7 +69,7 @@ form {
     margin: 0 0 1em;
 
     label {display: block}
-    &.field-horizontal label {display: inline}
+    &.horizontal_field label {display: inline}
   }
 
   .actions {

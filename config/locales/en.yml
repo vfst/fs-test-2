@@ -5,6 +5,8 @@ en:
   site:
     title: 'Codename: Calendar'
   user:
+    profile: My Profile
+    update: Update
     logout: Logout
   calendar:
     today: Today

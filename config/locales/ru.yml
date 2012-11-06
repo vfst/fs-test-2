@@ -7,10 +7,13 @@ ru:
         password: Пароль
         remember_me: Запомнить меня
         password_confirmation: Еще раз пароль
+        current_password: Текущий пароль
         
   site:
     title: Календарь
   user:
+    profile: Мой профиль
+    update: Изменить
     logout: Выход
   calendar:
     today: Сегодня

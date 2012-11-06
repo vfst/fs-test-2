@@ -1,5 +1,5 @@
 FsTest2::Application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
 
   resources :events, except: :show do
     get :common, on: :collection

@@ -1,0 +1,12 @@
+<nav class="secondary">
+  <ul>
+    <li><%= link_to t('calendar.my'), events_path %></li>
+    <li><%= link_to t('calendar.common'), common_events_path %></li>
+  </ul>
+</nav>
+<nav class="primary">
+  <ul>
+    <li><%= link_to current_user.display_name, edit_user_registration_path %></li>
+    <li><%= link_to t('user.logout'), destroy_user_session_path, method: :delete%></li>
+  </ul>
+</nav>

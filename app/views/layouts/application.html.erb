@@ -14,20 +14,7 @@
 <body>
   <header id="header">
     <h1><%= link_to t('site.title'), '/' %></h1>
-    <% if user_signed_in? %>
-    <nav class="secondary">
-      <ul>
-        <li><%= link_to t('calendar.my'), events_path %></li>
-        <li><%= link_to t('calendar.common'), common_events_path %></li>
-      </ul>
-    </nav>
-    <nav class="primary">
-      <ul>
-        <li><%= link_to current_user.display_name, '#' %></li>
-        <li><%= link_to t('user.logout'), destroy_user_session_path, method: :delete%></li>
-      </ul>
-    </nav>
-    <% end %>
+    <%= render 'shared/global_nav' if user_signed_in? %>
   </header>
   <div id="page">
     <div class="contents">
