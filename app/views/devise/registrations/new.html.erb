@@ -1,4 +1,4 @@
-<h2><%= t('.sign_up', default: "Sign up") %></h2>
+<% title(t('.sign_up', default: "Sign up")) %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <div class="field">
