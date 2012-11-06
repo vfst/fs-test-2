@@ -17,6 +17,12 @@ class ScheduleTest < ActiveSupport::TestCase
     assert_equal Date.new(2012, 2, 4), schedule.end_date
   end
 
+  test "should scope events to user" do
+    schedule = Schedule.new(2012, 11, user: users(:two))
+    assert_equal 1, schedule.events.size
+    assert_equal users(:two), schedule.events.first.user
+  end
+
   test "should respect first_day_of_week setting" do
     schedule = Schedule.new(2012, 1, first_day_of_week: 1)
     assert_equal Date.new(2011, 12, 26), schedule.start_date
@@ -33,7 +39,7 @@ class ScheduleTest < ActiveSupport::TestCase
 
   test "should collect all events in date range including recurring" do
     schedule = Schedule.new(2012, 11)
-    assert_equal 5, schedule.events.size
+    assert_equal 6, schedule.events.size
     assert !schedule.events.include?(events(:two))
   end
 

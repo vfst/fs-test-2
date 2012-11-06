@@ -6,7 +6,7 @@ class Schedule
     @year, @month = year.to_i, month.to_i
     @year = Date.today.year if @year == 0
     @month = Date.today.month if @month == 0
-    @options = { first_day_of_week: 0 }.merge(options)
+    @options = { first_day_of_week: 0, user: nil }.merge(options)
 
     detect_date_range
     prepare_day_names
@@ -14,7 +14,9 @@ class Schedule
   end
 
   def events
-    @events ||= Event.at_range(@start_date, @end_date).all
+    _base = options[:user].present? ? Event.where(user_id: options[:user]) : Event.includes(:user)
+
+    @events ||= _base.at_range(@start_date, @end_date).all
   end
 
   def events_on(date)

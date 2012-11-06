@@ -18,9 +18,9 @@ class Event < ActiveRecord::Base
 
   # select all one-time in specified range + all recurring events whose dates are already in the past
   def self.at_range(start_date, end_date)
-    where('(date >= :start_date and date <= :end_date and recurring = :r_false)
+    where('(events.date >= :start_date and events.date <= :end_date and events.recurring = :r_false)
            or
-           (recurring = :r_true and date <= :end_date)',
+           (events.recurring = :r_true and events.date <= :end_date)',
           { start_date: start_date, end_date: end_date,
             r_false: false, r_true: true })
   end

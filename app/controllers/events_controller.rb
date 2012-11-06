@@ -2,7 +2,6 @@
 # TODO: выпадайка с месяцем-годом не влезает с русской локалью
 # TODO: пользователь и сам может завадать локаль
 # TODO: ссылка на календарь со всеми событиями
-# TODO: привязка событий к пользователям
 # TODO: flash[:notice] и flash[:alert]
 # TODO: редактирование профиля
 # TODO: pjax?
@@ -10,21 +9,21 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @schedule = Schedule.new(params[:year], params[:month])
+    @schedule = Schedule.new(params[:year], params[:month], user: current_user)
   end
 
   def new
-    @event = Event.new(date_str: params[:date_str])
+    @event = current_user.events.new(date_str: params[:date_str])
     render :new, layout: !request.xhr?
   end
 
   def edit
-    @event = Event.find(params[:id])
+    @event = current_user.events.find(params[:id])
     render :edit, layout: !request.xhr?
   end
 
   def create
-    @event = Event.new(params[:event])
+    @event = current_user.events.new(params[:event])
 
     respond_to do |format|
       if @event.save
@@ -38,7 +37,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event = Event.find(params[:id])
+    @event = current_user.events.find(params[:id])
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
@@ -52,7 +51,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
+    @event = current_user.events.find(params[:id])
     @event.destroy
 
     respond_to do |format|
