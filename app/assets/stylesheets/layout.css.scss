@@ -1,6 +1,21 @@
 @import 'globals';
 
 #header {
+  nav.primary {
+    position: absolute;
+    top: 0; right: 32px;
+    background: #fff;
+
+    ul {margin: 0; list-style: none outside}
+    li {display: inline}
+
+    a {
+      display: inline-block;
+      padding: 4px 6px 3px;
+      margin: 0 2px;
+    }
+  }
+
   h1 {
     padding: 20px 0 0 32px;
     margin: 0;
