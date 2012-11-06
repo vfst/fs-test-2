@@ -9,6 +9,8 @@ ru:
         
   site:
     title: 'Codename: Calendar'
+  user:
+    logout: Выход
   calendar:
     today: Сегодня
   event:
