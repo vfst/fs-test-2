@@ -11,6 +11,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :locale %>
+    <%= f.select :locale, I18n.available_locales %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <%= f.password_field :password, autocomplete: 'off' %>
     <i class="hint">
@@ -18,7 +23,6 @@
              default: "leave blank if you don't want to change it") %>)
     </i>
   </div>
-
   <div class="field">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: 'off' %>
