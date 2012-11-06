@@ -1,7 +1,9 @@
 FsTest2::Application.routes.draw do
   devise_for :users
 
-  resources :events, except: :show
+  resources :events, except: :show do
+    get :common, on: :collection
+  end
   root to: 'events#index'
 
   # The priority is based upon order of creation:

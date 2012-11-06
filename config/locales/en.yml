@@ -8,6 +8,8 @@ en:
     logout: Logout
   calendar:
     today: Today
+    common: "Everyone's"
+    my: My
   event:
     new:
       title: New Event

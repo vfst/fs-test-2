@@ -9,11 +9,13 @@ ru:
         password_confirmation: Еще раз пароль
         
   site:
-    title: 'Codename: Calendar'
+    title: Календарь
   user:
     logout: Выход
   calendar:
     today: Сегодня
+    common: Общий
+    my: Мой
   event:
     new:
       title: Новое событие

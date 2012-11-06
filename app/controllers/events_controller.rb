@@ -12,6 +12,10 @@ class EventsController < ApplicationController
     @schedule = Schedule.new(params[:year], params[:month], user: current_user)
   end
 
+  def common
+    @schedule = Schedule.new(params[:year], params[:month])
+  end
+
   def new
     @event = current_user.events.new(date_str: params[:date_str])
     render :new, layout: !request.xhr?
@@ -30,7 +34,7 @@ class EventsController < ApplicationController
         format.html { redirect_to events_url(date_params(@event)), notice: 'Event was successfully created.' }
         format.js { render json: @event, content_type: :json }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.js { head :unprocessable_entity }
       end
     end
@@ -44,7 +48,7 @@ class EventsController < ApplicationController
         format.html { redirect_to events_url(date_params(@event)), notice: 'Event was successfully updated.' }
         format.js { render json: @event, content_type: :json }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.js { head :unprocessable_entity }
       end
     end
