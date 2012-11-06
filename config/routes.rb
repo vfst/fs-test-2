@@ -1,4 +1,6 @@
 FsTest2::Application.routes.draw do
+  devise_for :users
+
   resources :events, except: :show
   root to: 'events#index'
 
