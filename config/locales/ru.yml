@@ -2,6 +2,7 @@ ru:
   helpers:
     label:
       user:
+        name: Имя
         email: Email
         password: Пароль
         remember_me: Запомнить меня
