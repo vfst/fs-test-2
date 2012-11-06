@@ -18,16 +18,16 @@ class ScheduleTest < ActiveSupport::TestCase
   end
 
   test "should respect first_day_of_week setting" do
-    schedule = Schedule.new(2012, 1, 1)
+    schedule = Schedule.new(2012, 1, first_day_of_week: 1)
     assert_equal Date.new(2011, 12, 26), schedule.start_date
     assert_equal Date.new(2012, 2, 5), schedule.end_date
   end
 
   test "should correctly order day names according to first_day_of_week setting" do
-    schedule = Schedule.new(2012, 1, 0)
+    schedule = Schedule.new(2012, 1, first_day_of_week: 0)
     assert_equal %w(Sun Mon Tue Wed Thu Fri Sat), schedule.day_names
 
-    schedule = Schedule.new(2012, 1, 3)
+    schedule = Schedule.new(2012, 1, first_day_of_week: 3)
     assert_equal %w(Wed Thu Fri Sat Sun Mon Tue), schedule.day_names
   end
 

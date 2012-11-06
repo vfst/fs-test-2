@@ -7,3 +7,7 @@
 user:
   name: Annoy Mouse
   email: user@example.com
+
+two:
+  name: Second User
+  email: user2@example.com

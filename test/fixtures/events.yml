@@ -5,33 +5,39 @@ one:
   date: 2012-10-31
   recurring: false
   schedule_type:
+  user: user
 
 two:
   title: call doctor
   date: 2013-02-07
   recurring: false
   schedule_type:
+  user: user
 
 weekly:
   title: weekly report
   date: 2012-10-31
   recurring: true
   schedule_type: weekly
+  user: user
 
 daily:
   title: brush teeth
   date: 2012-10-31
   recurring: true
   schedule_type: daily
+  user: user
 
 monthly:
   title: salary
   date: 2012-09-10
   recurring: true
   schedule_type: monthly
+  user: user
 
 yearly:
   title: birthday
   date: 1986-07-07
   recurring: true
   schedule_type: yearly
+  user: user
