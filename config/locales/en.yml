@@ -28,6 +28,7 @@ en:
       monthly: monthly
       yearly: yearly
   date:
+    first_day_of_week: 0
     formats:
       not_so_short: '%B %e'
       month_and_year: '%B %Y'

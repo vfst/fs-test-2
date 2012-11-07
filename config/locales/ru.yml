@@ -36,6 +36,7 @@ ru:
       monthly: каждый месяц
       yearly: каждый год
   date:
+    first_day_of_week: 1
     formats:
       not_so_short: '%B %e'
       month_and_year: '%B %Y'

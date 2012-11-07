@@ -11,11 +11,14 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @schedule = Schedule.new(params[:year], params[:month], user: current_user)
+    @schedule = Schedule.new(params[:year], params[:month],
+                             first_day_of_week: t('date.first_day_of_week'),
+                             user: current_user)
   end
 
   def common
-    @schedule = Schedule.new(params[:year], params[:month])
+    @schedule = Schedule.new(params[:year], params[:month],
+                             first_day_of_week: t('date.first_day_of_week'))
   end
 
   def new
