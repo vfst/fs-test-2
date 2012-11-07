@@ -1,7 +1,10 @@
 <nav class="calendar__navigation primary">
-<%= link_to '←', events_path(year: schedule.month_date.prev_month.year,
-                             month: schedule.month_date.prev_month.month) -%>
-<%= link_to t('calendar.today'), events_path -%>
-<%= link_to '→', events_path(year: schedule.month_date.next_month.year,
-                             month: schedule.month_date.next_month.month) %>
+<% prev_month = { year: schedule.month_date.prev_month.year,
+                  month: schedule.month_date.prev_month.month }
+   next_month = { year: schedule.month_date.next_month.year,
+                  month: schedule.month_date.next_month.month } %>
+
+<%= link_to '←', current_page?(action: :index) ? events_path(prev_month) : common_events_path(prev_month) -%>
+<%= link_to t('calendar.today'), current_page?(action: :index) ? events_path : common_events_path -%>
+<%= link_to '→', current_page?(action: :index) ? events_path(next_month) : common_events_path(next_month) %>
 </nav>
