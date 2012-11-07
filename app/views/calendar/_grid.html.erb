@@ -1,11 +1,12 @@
-<article class="calendar_grid">
+<article class="calendar_grid calendar">
   <header>
     <h2>
       <span class="calendar__range" data-toggle=".calendar__range__picker">
         <%= l(schedule.month_date, format: :month_and_year) %>
       </span>
     </h2>
-    <%= render partial: 'calendar/nav', locals: { schedule: schedule } %>
+    <%= render partial: 'calendar/secondary_nav', locals: { schedule: schedule } %>
+    <%= render partial: 'calendar/primary_nav', locals: { schedule: schedule } %>
   </header>
   <table class="calendar__grid" colspan="0" rowspan="0">
     <thead>

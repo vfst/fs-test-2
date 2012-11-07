@@ -1,6 +1,7 @@
-<article class="calendar_list">
+<article class="calendar_list calendar">
   <header>
     <h2><%= l(schedule.month_date, format: :month_and_year) %></h2>
+    <%= render partial: 'calendar/primary_nav', locals: { schedule: schedule } %>
   </header>
   <ul class="calendar__list">
     <% schedule.range.each_with_index do |date, index| %>

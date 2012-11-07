@@ -13,6 +13,12 @@ class EventsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:schedule)
   end
 
+  test "should get common" do
+    get :common
+    assert_response :success
+    assert_not_nil assigns(:schedule)
+  end
+
   test "should get new" do
     get :new
     assert_response :success

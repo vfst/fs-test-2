@@ -6,25 +6,7 @@
   font-size: 81.25%;
   line-height: 1.2;
 
-  header {
-    padding: 0 0 1em;
-    position: relative;
-
-    h2 {
-      text-align: center;
-      padding: 0;
-    }
-  }
-}
-
-.calendar_grid nav {
-  a {
-    color: $bodyColor;
-    text-decoration: none;
-
-    &:hover {color: $linkHover}
-    &:active {background: $calendarBorder}
-  }
+  header h2 {text-align: center}
 }
 
 nav.calendar__new_event {
@@ -34,24 +16,6 @@ nav.calendar__new_event {
   line-height: 1.5;
 
   a {color: $linkColor}
-}
-
-nav.calendar__navigation {
-  position: absolute;
-  top: 0; right: 0;
-  padding: 2px 0;
-  text-align: right;
-  border: 1px solid $calendarBorder;
-  border-radius: 4px;
-
-  a {
-    display: inline-block;
-    margin: 0;
-    padding: 4px 9px 3px;
-    border-right: 1px solid $calendarBorder;
-
-    &:last-child {border-right: none}
-  }
 }
 
 nav.calendar__range__picker {
