@@ -38,8 +38,9 @@ nav.calendar__range__picker {
   ul {
     list-style: none outside;
     overflow: hidden;
-    padding: 0;
+    padding: 0 1em 0 0;
     text-align: center;
+    white-space: nowrap;
   }
 
   ul li {display: inline-block}

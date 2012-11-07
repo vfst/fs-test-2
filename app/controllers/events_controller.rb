@@ -1,5 +1,4 @@
 # encoding: UTF-8
-# TODO: выпадайка с месяцем-годом не влезает с русской локалью
 # TODO: print.css
 # TODO: ie
 # TODO: deploy на heroku
