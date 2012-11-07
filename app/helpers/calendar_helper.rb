@@ -1,7 +1,7 @@
 # encoding: UTF-8
 module CalendarHelper
   def calendar_for(schedule)
-    render partial: 'schedule/view', locals: { schedule: schedule }
+    render partial: 'calendar/grid', locals: { schedule: schedule }
   end
 
   def calendar_date_classes(date, month_date)

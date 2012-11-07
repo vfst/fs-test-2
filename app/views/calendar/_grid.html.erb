@@ -5,7 +5,7 @@
         <%= l(schedule.month_date, format: :month_and_year) %>
       </span>
     </h2>
-    <%= render partial: 'schedule/nav', locals: { schedule: schedule } %>
+    <%= render partial: 'calendar/nav', locals: { schedule: schedule } %>
   </header>
   <table class="calendar__grid" colspan="0" rowspan="0">
     <thead>
@@ -23,7 +23,7 @@
                             class: calendar_date_classes(date, schedule.month_date) do %>
               <div class="day"><%= calendar_pretty_day(date) %></div>
               <ul class="events">
-                <%= render partial: 'schedule/event',
+                <%= render partial: 'calendar/event',
                            collection: schedule.events_on(date),
                            locals: { date: date },
                            as: :event %>
