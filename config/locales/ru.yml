@@ -37,6 +37,10 @@ ru:
       weekly: каждую неделю
       monthly: каждый месяц
       yearly: каждый год
+    confirm:
+      destroy:
+        recurring: Удалить это событие и все его повторы?
+        one_time: Удалить это событие?
     created: Событие добавлено
     updated: Событие изменено
   date:

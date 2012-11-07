@@ -29,6 +29,10 @@ en:
       weekly: weekly
       monthly: monthly
       yearly: yearly
+    confirm:
+      destroy:
+        recurring: Delete this event and all events in the series?
+        one_time: Delete event?
     created: Event was successfully created
     updated: Event was successfully updated
   date:
