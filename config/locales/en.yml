@@ -8,7 +8,7 @@ en:
     profile: My Profile
     update: Update
     logout: Logout
-    updated: Event was successfully updated
+    updated: Profile was successfully updated
   calendar:
     today: Today
     common: "Everyone's"
