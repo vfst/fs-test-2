@@ -1,4 +1,4 @@
-<%= calendar_for @schedule %>
+<%= render partial: 'calendar/grid', locals: { schedule: @schedule } %>
 
 <div class="modal hide" id="event_modal" role="dialog" aria-hidden="true" data-backdrop="false" data-keyboard="true">
   <div class="modal-body">

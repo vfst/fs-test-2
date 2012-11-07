@@ -1,9 +1,5 @@
 # encoding: UTF-8
 module CalendarHelper
-  def calendar_for(schedule)
-    render partial: 'calendar/grid', locals: { schedule: schedule }
-  end
-
   def calendar_date_classes(date, month_date)
     classes = %w(date)
     classes << 'other_month' unless date.month == month_date.month
