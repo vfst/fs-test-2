@@ -18,6 +18,7 @@ en:
       title: New Event
     actions:
       new: New Event
+      edit: Edit event
       create: Add this event
       update: Save event
       cancel: Cancel
