@@ -13,12 +13,12 @@ class EventsController < ApplicationController
     @schedule = Schedule.new(params[:year], params[:month],
                              first_day_of_week: t('date.first_day_of_week'),
                              user: current_user)
+    render :index, layout: 'calendar'
   end
 
   def common
     @schedule = Schedule.new(params[:year], params[:month],
                              first_day_of_week: t('date.first_day_of_week'))
-    render :common, layout: 'slim'
   end
 
   def new

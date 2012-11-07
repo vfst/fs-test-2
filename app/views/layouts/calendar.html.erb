@@ -13,15 +13,12 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body class="g_slim">
+<body>
   <header id="header">
     <h1><%= link_to t('site.title'), '/' %></h1>
     <%= render 'shared/global_nav' if user_signed_in? %>
   </header>
   <div id="page">
-    <% if @page_title.present? %>
-      <header><h2><%= @page_title %></h2></header>
-    <% end %>
     <div class="contents">
       <%= render 'shared/flashes' %>
       <%= yield %>
