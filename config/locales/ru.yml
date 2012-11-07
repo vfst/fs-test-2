@@ -16,6 +16,7 @@ ru:
     profile: Мой профиль
     update: Изменить
     logout: Выход
+    updated: Данные профиля изменены
   calendar:
     today: Сегодня
     common: Общий
@@ -35,6 +36,8 @@ ru:
       weekly: каждую неделю
       monthly: каждый месяц
       yearly: каждый год
+    created: Событие добавлено
+    updated: Событие изменено
   date:
     first_day_of_week: 1
     formats:

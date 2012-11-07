@@ -2,7 +2,6 @@
 # TODO: выпадайка с месяцем-годом не влезает с русской локалью
 # TODO: ссылка на календарь со всеми событиями
 # TODO: print.css
-# TODO: перевод флешей
 # TODO: ie
 # TODO: deploy на heroku
 # TODO: почта, восстановление пароля
@@ -36,7 +35,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to events_url(date_params(@event)), notice: 'Event was successfully created.' }
+        format.html { redirect_to events_url(date_params(@event)), notice: t('event.created') }
         format.js { render json: @event, content_type: :json }
       else
         format.html { render action: 'new' }
@@ -50,7 +49,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        format.html { redirect_to events_url(date_params(@event)), notice: 'Event was successfully updated.' }
+        format.html { redirect_to events_url(date_params(@event)), notice: t('event.updated') }
         format.js { render json: @event, content_type: :json }
       else
         format.html { render action: 'edit' }

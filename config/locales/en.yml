@@ -8,6 +8,7 @@ en:
     profile: My Profile
     update: Update
     logout: Logout
+    updated: Event was successfully updated
   calendar:
     today: Today
     common: "Everyone's"
@@ -27,6 +28,8 @@ en:
       weekly: weekly
       monthly: monthly
       yearly: yearly
+    created: Event was successfully created
+    updated: Event was successfully updated
   date:
     first_day_of_week: 0
     formats:
