@@ -1,5 +1,6 @@
 # encoding: UTF-8
 # TODO: выпадайка с месяцем-годом не влезает с русской локалью
+# TODO: с русской локалью неправильная дата в модальном окне
 # TODO: ссылка на календарь со всеми событиями
 # TODO: print.css
 # TODO: перевод флешей
@@ -18,6 +19,7 @@ class EventsController < ApplicationController
   def common
     @schedule = Schedule.new(params[:year], params[:month],
                              first_day_of_week: t('date.first_day_of_week'))
+    render :common, layout: 'slim'
   end
 
   def new

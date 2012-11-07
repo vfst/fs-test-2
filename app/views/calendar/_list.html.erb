@@ -1,0 +1,28 @@
+<article class="calendar_list">
+  <header>
+    <h2><%= l(schedule.month_date, format: :month_and_year) %></h2>
+  </header>
+  <ul class="calendar__list">
+    <% schedule.range.each_with_index do |date, index| %>
+      <%= content_tag :li, class: calendar_date_classes(date, schedule.month_date) do %>
+        <div class="day">
+          <span class="wday"><%= schedule.day_names[index % 7] %></span>
+          <span><%= date.strftime('%e') %></span>
+        </div>
+        <% groupped_events = schedule.events_on(date).group_by(&:user) %>
+        <dl class="user_with_events">
+          <% groupped_events.each do |user, events| %>
+            <dt class="user"><%= user.display_name %></dt>
+            <dd>
+              <ul class="events">
+                <% events.each do |event| %>
+                  <li><%= event.title %></li>
+                <% end %>
+              </ul>
+            </dd>
+          <% end %>
+        </dl>
+      <% end %>
+    <% end %>
+  </ul>
+</article>

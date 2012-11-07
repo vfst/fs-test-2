@@ -1,0 +1,52 @@
+@import 'globals';
+
+.calendar_list {
+  .other_month {
+    color: $colorless;
+    font-size: 93%;
+
+    .day {color: $calendarBorder}
+  }
+
+  .today {background: $highlightColor}
+}
+
+.calendar__list {
+  margin: 0;
+  list-style: none outside;
+  font-size: 87.5%;
+}
+
+.calendar__list .date {
+  padding: 1em;
+  overflow: hidden;
+  border-bottom: 1px solid $calendarBorder;
+
+  .day {
+    float: left;
+    min-width: 10%;
+    margin: 0 1em 0 0;
+    text-align: center;
+
+    .wday {
+      display: block;
+      font-weight: bold;
+    }
+  }
+
+  .user_with_events {
+    overflow: hidden;
+
+    dt {
+      font-weight: normal;
+      font-style: italic;
+    }
+
+    dd {font-size: 93%}
+  }
+
+  .events {
+    list-style-position: inside;
+    margin: 0;
+  }
+}

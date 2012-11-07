@@ -13,7 +13,8 @@
  *= require scaffolds
  *= require layout
  *= require forms
- *= require calendar
+ *= require calendar_grid
+ *= require calendar_list
  *= require modals
  *= require flashes
  */
