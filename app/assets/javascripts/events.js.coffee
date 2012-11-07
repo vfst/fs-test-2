@@ -49,6 +49,6 @@ jQuery ->
     drop: (e, ui) ->
       event_id = ui.draggable.attr('data-id')
       $.post("/events/#{event_id}.js",
-             { _method: 'put', event: { date_str: $(@).attr('data-date') } },
+             { _method: 'put', event: { date_str: $(@).attr('data-ldate') } },
              (data) -> updateEvent(data))
   )
