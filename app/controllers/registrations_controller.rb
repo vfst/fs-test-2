@@ -7,6 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     @user = User.find(current_user.id)
     if @user.update_attributes(params[:user])
+      I18n.locale = @user.locale
       sign_in @user, bypass: true
       redirect_to edit_user_registration_url, notice: t('user.updated')
     else

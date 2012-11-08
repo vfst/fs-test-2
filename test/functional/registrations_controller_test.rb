@@ -21,4 +21,12 @@ class RegistrationsControllerTest < ActionController::TestCase
     assert_redirected_to edit_user_registration_url
     assert_equal 'Pirate', @user.reload.name
   end
+
+  test "should change I18n.locale to @user.locale" do
+    assert_equal :en, I18n.locale
+
+    put :update, user: {locale: :ru}
+
+    assert_equal :ru, I18n.locale
+  end
 end
