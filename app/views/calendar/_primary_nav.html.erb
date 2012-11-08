@@ -4,7 +4,7 @@
    next_month = { year: schedule.month_date.next_month.year,
                   month: schedule.month_date.next_month.month } %>
 
-<%= link_to '←', current_page?(action: :index) ? events_path(prev_month) : common_events_path(prev_month) -%>
-<%= link_to t('calendar.today'), current_page?(action: :index) ? events_path : common_events_path -%>
-<%= link_to '→', current_page?(action: :index) ? events_path(next_month) : common_events_path(next_month) %>
+<%= link_to '←', current_page?(action: :common) ? common_events_path(prev_month) : events_path(prev_month) -%>
+<%= link_to t('calendar.today'), current_page?(action: :common) ? common_events_path : events_path -%>
+<%= link_to '→', current_page?(action: :index) ? common_events_path(next_month) : events_path(next_month) %>
 </nav>
