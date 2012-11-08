@@ -1,5 +1,4 @@
 # encoding: UTF-8
-# TODO: deploy на heroku
 class EventsController < ApplicationController
   before_filter :authenticate_user!
 
