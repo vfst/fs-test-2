@@ -56,9 +56,10 @@ module FsTest2
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.precompile += ['print.css', 'ie.css']
+    config.assets.precompile += %w(print.css ie.css)
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.assets.initialize_on_precompile=false
   end
 end
