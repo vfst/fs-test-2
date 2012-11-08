@@ -4,8 +4,11 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :locale, :email, :password, :password_confirmation, :remember_me
+
+  default_value_for :locale do
+    I18n.locale || :en
+  end
 
   has_many :events
 
