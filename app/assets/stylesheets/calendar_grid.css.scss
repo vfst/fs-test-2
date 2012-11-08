@@ -19,7 +19,6 @@ nav.calendar__new_event {
 }
 
 nav.calendar__range__picker {
-  overflow: hidden;
   position: absolute;
   top: 24px; left: 50%;
   margin: 0 0 0 -260px;
@@ -27,23 +26,17 @@ nav.calendar__range__picker {
   width: auto;
   display: none;
 
-  dt {
+  .year {
     float: left;
     padding: 2px 5px 0;
-    margin: 0 1em
+    margin: 0 1em;
+    font-weight: bold;
   }
 
-  dd {padding: 0}
-
-  ul {
-    list-style: none outside;
-    overflow: hidden;
-    padding: 0 1em 0 0;
-    text-align: center;
+  .months {
     white-space: nowrap;
+    float: right;
   }
-
-  ul li {display: inline-block}
 
   a {
     display: inline-block;
