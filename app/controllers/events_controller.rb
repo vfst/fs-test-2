@@ -1,8 +1,6 @@
 # encoding: UTF-8
-# TODO: print.css
 # TODO: ie
 # TODO: deploy на heroku
-# TODO: почта, восстановление пароля
 class EventsController < ApplicationController
   before_filter :authenticate_user!
 
