@@ -1,0 +1,13 @@
+@import "globals";
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $bodyColor;
+  font: normal normal 12pt/1.5  Cambria, Georgia, serif
+}
+
+.noprint, form {display: none!important}
+
+a {text-decoration: none; color: $bodyColor}
+p+ul, h2+ul, h3+ul {margin-top: .2em}
