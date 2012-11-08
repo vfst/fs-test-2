@@ -9,8 +9,21 @@
     <%= "#{@page_title} / " if @page_title.present? %>
     <%= t('site.title') %>
   </title>
+  <!--[if lt IE 9]>
+     <script>
+        document.createElement('header');
+        document.createElement('nav');
+        document.createElement('section');
+        document.createElement('article');
+        document.createElement('aside');
+        document.createElement('footer');
+     </script>
+  <![endif]-->
   <%= stylesheet_link_tag "application", media: "screen" %>
   <%= stylesheet_link_tag "print", media: "print" %>
+  <!--[if lte IE 7]>
+     <%= stylesheet_link_tag "ie", media: "screen" %>
+  <![endif]-->
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>

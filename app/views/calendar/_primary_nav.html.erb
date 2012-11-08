@@ -6,5 +6,5 @@
 
 <%= link_to '←', current_page?(action: :common) ? common_events_path(prev_month) : events_path(prev_month) -%>
 <%= link_to t('calendar.today'), current_page?(action: :common) ? common_events_path : events_path -%>
-<%= link_to '→', current_page?(action: :index) ? common_events_path(next_month) : events_path(next_month) %>
+<%= link_to '→', current_page?(action: :common) ? common_events_path(next_month) : events_path(next_month) %>
 </nav>

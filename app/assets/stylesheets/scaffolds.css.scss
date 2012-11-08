@@ -10,7 +10,7 @@ body {
   font: normal normal 100%/1.4 Helvetica Neue, Helvetica, Arial, sans-serif
 }
 
-article, header, footer, aside, nav {display: block}
+article, header, footer, aside, nav {display: block; zoom: 1}
 
 /* links */
 a {color: $linkColor}
