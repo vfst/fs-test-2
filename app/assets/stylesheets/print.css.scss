@@ -22,6 +22,34 @@ p+ul, h2+ul, h3+ul {margin-top: .2em}
   .other_month {color: $colorless}
 }
 
+.calendar__grid {
+  width: 100%;
+  font-size: 75%;
+  border-collapse: collapse;
+
+  th {border-bottom: 1px solid $calendarBorder}
+
+  td {
+    width: 14.286%;
+    height: 100px;
+    padding: 2px 4px;
+    vertical-align: top;
+    line-height: 1.2;
+    border-bottom: 1px solid $calendarBorder;
+    border-right: 1px solid $calendarBorder;
+
+    .day {
+      text-align: right;
+      font-size: 90%;
+    }
+
+    .events {list-style-position: inside}
+  }
+
+  tr td:last-child {border-right: none}
+  tr:last-child td {border-bottom: none}
+}
+
 
 .calendar_list {
   .calendar__list {
