@@ -7,7 +7,47 @@ body {
   font: normal normal 12pt/1.5  Cambria, Georgia, serif
 }
 
-.noprint, form {display: none!important}
+.noprint, form, #header, .calendar nav {display: none!important}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
 
 a {text-decoration: none; color: $bodyColor}
 p+ul, h2+ul, h3+ul {margin-top: .2em}
+
+.calendar .other_month {color: $colorless}
+
+.calendar_list {
+  .calendar__list {
+    display: table;
+    width: 100%
+  }
+
+  .date {display: table-row}
+
+  .day {
+    display: table-cell;
+    width: 10%;
+    padding: 1em;
+    font-weight: bold;
+    border-bottom: 1px solid $calendarBorder;
+    vertical-align: middle;
+    text-align: center;
+
+    .wday {
+      display: block;
+      font-variant: small-caps;
+      font-size: 1em;
+    }
+
+    span {font-size: 125%}
+  }
+
+  .user_with_events {
+    display: table-cell;
+    padding: 1em;
+    border-bottom: 1px solid $calendarBorder;
+  }
+}
