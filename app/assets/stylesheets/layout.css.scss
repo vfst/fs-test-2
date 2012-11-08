@@ -53,7 +53,7 @@
 
 #page {
   margin: 1em 32px 2em;
-  min-width: 888px;
+  min-width: 886px;
   background: #fff;
 
   > header {padding: 0 2em}
@@ -65,4 +65,9 @@
   width: 480px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (max-width: 960px) {
+  body {font-size: 14px}
+  #page {margin-left: 0; margin-right: 0}
 }
