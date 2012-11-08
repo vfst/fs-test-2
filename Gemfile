@@ -2,14 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
-gem 'sqlite3'
 gem 'russian'
 gem 'default_value_for'
 gem 'rack-contrib'
 gem 'devise'
 gem 'devise-i18n-views'
 gem 'devise-i18n'
-
+gem 'pg', group: :production
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -25,8 +24,9 @@ end
 
 gem 'jquery-rails'
 
-group :development do
+group :development, :test do
   gem 'puma'
   gem 'turn'
   gem 'minitest'
+  gem 'sqlite3'
 end
