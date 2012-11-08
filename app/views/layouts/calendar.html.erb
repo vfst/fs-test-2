@@ -9,8 +9,8 @@
     <%= "#{@page_title} / " if @page_title.present? %>
     <%= t('site.title') %>
   </title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag "application", media: "screen" %>
+  <%= stylesheet_link_tag "print", media: "print" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

@@ -1,0 +1,85 @@
+@import "globals";
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $bodyColor;
+  font: normal normal 12pt/1.4 Helvetica Neue, Helvetica, Arial, sans-serif
+}
+
+.noprint, form, #header, .calendar nav {display: none!important}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+a {text-decoration: none; color: $bodyColor}
+p+ul, h2+ul, h3+ul {margin-top: .2em}
+
+.calendar {
+  header h2 {text-align: center}
+  .other_month {color: $colorless}
+}
+
+.calendar__grid {
+  width: 100%;
+  font-size: 75%;
+  border-collapse: collapse;
+
+  th {border-bottom: 1px solid $calendarBorder}
+
+  td {
+    width: 14.286%;
+    height: 100px;
+    padding: 2px 4px;
+    vertical-align: top;
+    line-height: 1.2;
+    border-bottom: 1px solid $calendarBorder;
+    border-right: 1px solid $calendarBorder;
+
+    .day {
+      text-align: right;
+      font-size: 90%;
+    }
+
+    .events {list-style-position: inside}
+  }
+
+  tr td:last-child {border-right: none}
+  tr:last-child td {border-bottom: none}
+}
+
+
+.calendar_list {
+  .calendar__list {
+    display: table;
+    width: 100%
+  }
+
+  .date {display: table-row}
+
+  .day {
+    display: table-cell;
+    width: 10%;
+    padding: 1em;
+    font-weight: bold;
+    border-bottom: 1px solid $calendarBorder;
+    vertical-align: middle;
+    text-align: center;
+
+    .wday {
+      display: block;
+      font-variant: small-caps;
+      font-size: 1em;
+    }
+
+    span {font-size: 125%}
+  }
+
+  .user_with_events {
+    display: table-cell;
+    padding: 1em;
+    border-bottom: 1px solid $calendarBorder;
+  }
+}
