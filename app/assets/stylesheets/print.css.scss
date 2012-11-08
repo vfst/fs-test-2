@@ -17,7 +17,11 @@ ul, li {
 a {text-decoration: none; color: $bodyColor}
 p+ul, h2+ul, h3+ul {margin-top: .2em}
 
-.calendar .other_month {color: $colorless}
+.calendar {
+  header h2 {text-align: center}
+  .other_month {color: $colorless}
+}
+
 
 .calendar_list {
   .calendar__list {
