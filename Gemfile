@@ -8,7 +8,7 @@ gem 'rack-contrib'
 gem 'devise'
 gem 'devise-i18n-views'
 gem 'devise-i18n'
-gem 'pg', group: :production
+gem 'jquery-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,7 +22,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
 
 group :development, :test do
   gem 'puma'
