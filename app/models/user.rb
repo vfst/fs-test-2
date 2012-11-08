@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :locale, :email, :password, :password_confirmation, :remember_me
 
+  has_many :events
+
   default_value_for :locale do
     I18n.locale || :en
   end
-
-  has_many :events
 
   def display_name
     name.blank? ? 'Anonymous' : name

@@ -2,6 +2,7 @@
 class Schedule
   attr_reader :year, :month, :options,
               :start_date, :end_date, :day_names
+
   def initialize(year = nil, month = nil, options = {})
     @year, @month = year.to_i, month.to_i
     @year = Date.today.year if @year == 0
